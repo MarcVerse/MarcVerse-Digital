@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <!-- Metallic Navy Blue/Black Gradients -->
+    <linearGradient id="mv-navy-primary" x1="20%" y1="10%" x2="80%" y2="90%">
+      <stop offset="0%" stopColor="#020813" />
+      <stop offset="50%" stopColor="#0B1C33" />
+      <stop offset="100%" stopColor="#11294A" />
+    </linearGradient>
+    
+    <linearGradient id="mv-navy-highlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#1E3E62" />
+      <stop offset="60%" stopColor="#0B1C33" />
+      <stop offset="100%" stopColor="#020813" />
+    </linearGradient>
+
+    <!-- Vibrant Emerald to Lime Green Gradients -->
+    <linearGradient id="mv-green-primary" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stopColor="#013A1A" />
+      <stop offset="35%" stopColor="#007F39" />
+      <stop offset="70%" stopColor="#10B981" />
+      <stop offset="100%" stopColor="#34D399" />
+    </linearGradient>
+
+    <linearGradient id="mv-green-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#34D399" />
+      <stop offset="100%" stopColor="#059669" />
+    </linearGradient>
+
+    <!-- Premium Soft Shadow Filter -->
+    <filter id="mv-soft-shadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="1" dy="1.5" stdDeviation="1.5" floodColor="#020813" floodOpacity="0.16" />
+    </filter>
+  </defs>
+
+  <g filter="url(#mv-soft-shadow)">
+    <!-- 1. DISINTEGRATING DIGITAL PIXELS (Left Side) -->
+    <rect x="18.5" y="36.5" width="3.2" height="3.2" rx="0.5" fill="#10B981" />
+    <rect x="13.5" y="40.5" width="3.2" height="3.2" rx="0.5" fill="#059669" />
+    
+    <rect x="20.5" y="32.5" width="3.2" height="3.2" rx="0.5" fill="#020813" />
+    <rect x="22.5" y="38.5" width="3.2" height="3.2" rx="0.5" fill="#0B1C33" />
+    <rect x="22.5" y="42.5" width="3.2" height="3.2" rx="0.5" fill="#020813" />
+    <rect x="24.5" y="38.5" width="3.2" height="3.2" rx="0.5" fill="#11294A" />
+    <rect x="19.5" y="45.5" width="3.8" height="3.8" rx="0.5" fill="#0B1C33" />
+    <rect x="15.5" y="45.5" width="3.2" height="3.2" rx="0.5" fill="#020813" />
+    <rect x="12.8" y="49.8" width="2.8" height="2.8" rx="0.5" fill="#020813" />
+    <rect x="14.5" y="53.8" width="2.8" height="2.8" rx="0.5" fill="#020813" />
+    <rect x="18.2" y="50.2" width="4.2" height="4.2" rx="0.5" fill="#020813" />
+    <rect x="21.2" y="46.2" width="4.8" height="4.8" rx="0.5" fill="#020813" />
+    <rect x="21.2" y="54.2" width="3.8" height="3.8" rx="0.5" fill="#0B1C33" />
+    <rect x="25.2" y="43.2" width="4.8" height="4.8" rx="0.5" fill="#020813" />
+    <rect x="25.2" y="50.2" width="4.2" height="4.2" rx="0.5" fill="#11294A" />
+    <rect x="29.2" y="44.2" width="4.2" height="4.2" rx="0.5" fill="#020813" />
+    <rect x="29.2" y="49.2" width="3.8" height="3.8" rx="0.5" fill="#020813" />
+    <rect x="17.2" y="53.2" width="2.8" height="2.8" rx="0.5" fill="#11294A" />
+
+    <!-- 2. CIRCULAR OUTER RINGS (Crescents) -->
+    <path
+      d="M 52.5 18.5 C 38.5 18.5 28.5 28.5 28.5 35 C 28.5 31.5 35.5 24 52.5 24 Z"
+      fill="url(#mv-navy-highlight)"
+    />
+    <path
+      d="M 36.5 67.5 C 36.5 73.5 45.5 78.5 54.5 78.5 C 47.5 76 39.5 72.5 36.5 67.5 Z"
+      fill="url(#mv-navy-primary)"
+    />
+    <path
+      d="M 54.5 18.5 C 68.5 18.5 77.5 28.5 77.5 35 C 73.5 31.5 65.5 24 54.5 24 Z"
+      fill="url(#mv-green-primary)"
+    />
+    <path
+      d="M 64.5 78.5 C 73.5 73.5 79.5 60.5 79.5 50.5 C 76.5 56.5 71.5 71.5 64.5 78.5 Z"
+      fill="url(#mv-green-accent)"
+    />
+
+    <!-- 3. CORE ABSTRACT "M" (Navy Blue) -->
+    <path
+      d="M 26.5 31.5 C 26.5 31.5 26.5 72.5 26.5 72.5 H 34.5 V 45.5 L 48.5 59.5 L 64.5 44.5 V 32.5 H 56.5 L 48.5 41.5 L 41.5 31.5 Z"
+      fill="url(#mv-navy-primary)"
+    />
+
+    <!-- 4. CORE ABSTRACT "V" / CHECKMARK (Vibrant Green) -->
+    <path
+      d="M 52.5 54.5 L 64.5 76.5 L 85.5 31.5 H 76.5 L 64.5 59.5 L 57.5 50.5 Z"
+      fill="url(#mv-green-primary)"
+    />
+  </g>
+</svg>
