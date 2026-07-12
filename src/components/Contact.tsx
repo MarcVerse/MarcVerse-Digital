@@ -245,13 +245,13 @@ Thank you.`;
                   </p>
                   <div className="flex items-center gap-2 mt-1">
                     <a 
-                      href="mailto:marcversedigital@outlook.com" 
+                      href="mailto:imacdigitas@outlook.com" 
                       className="font-sans text-sm sm:text-base font-semibold text-zinc-800 dark:text-zinc-200 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors duration-150 truncate focus:outline-none focus:underline"
                     >
-                      marcversedigital@outlook.com
+                      imacdigitas@outlook.com
                     </a>
                     <button
-                      onClick={() => handleCopy('marcversedigital@outlook.com', 'email')}
+                      onClick={() => handleCopy('imacdigitas@outlook.com', 'email')}
                       className="p-1 rounded-md text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-all duration-200 cursor-pointer flex items-center justify-center focus:ring-2 focus:ring-emerald-500/20 outline-none"
                       title="Copy Email"
                       aria-label="Copy Email address"

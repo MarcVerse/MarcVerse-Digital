@@ -130,14 +130,14 @@ export default function Testimonials() {
               </div>
 
               {/* Testimonial text */}
-              <div className="relative z-10 mb-8">
+              <div className="relative z-10 mb-4">
                 <p className="font-sans text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed italic">
                   "{item.text}"
                 </p>
               </div>
 
               {/* Client Info Footer */}
-              <div className="relative z-10 flex items-center gap-4 border-t border-zinc-200/50 dark:border-zinc-800/50 pt-6">
+              <div className="relative z-10 flex items-center gap-4 border-t border-zinc-200/50 dark:border-zinc-800/50 pt-4">
                 {/* Initial-based avatar placeholder */}
                 <div className={`flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br ${item.avatarBg} font-display text-sm font-bold shadow-sm flex-shrink-0`}>
                   {item.initials}

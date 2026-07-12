@@ -29,10 +29,10 @@ export default function Footer() {
   };
 
   const socialLinks = [
-    { icon: Facebook, label: 'Facebook', href: '#' },
-    { icon: Instagram, label: 'Instagram', href: '#' },
-    { icon: Linkedin, label: 'LinkedIn', href: '#' },
-    { icon: Twitter, label: 'X (Twitter)', href: '#' },
+    { icon: Facebook, label: 'Facebook', href: 'https://facebook.com' },
+    { icon: Instagram, label: 'Instagram', href: 'https://instagram.com' },
+    { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
+    { icon: Twitter, label: 'X (Twitter)', href: 'https://x.com' },
   ];
 
   const quickLinks = [
@@ -93,6 +93,8 @@ export default function Footer() {
                   <a
                     key={social.label}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center justify-center w-10 h-10 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800/80 text-zinc-500 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 hover:border-emerald-500/20 dark:hover:border-emerald-500/20 hover:bg-emerald-50/10 dark:hover:bg-emerald-500/5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
                     aria-label={`Visit our ${social.label}`}
                     title={social.label}

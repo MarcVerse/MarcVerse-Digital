@@ -109,35 +109,13 @@ export default function Hero({ onCtaClick }: HeroProps) {
     >
       {/* Slow Animated Mesh Gradient & Ambient Glows */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-0 left-0 right-0 h-[600px] bg-gradient-to-b from-emerald-100/15 via-emerald-50/5 to-transparent dark:from-emerald-950/15 dark:via-transparent dark:to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-[600px] bg-gradient-to-b from-emerald-100/10 via-emerald-50/2 to-transparent dark:from-emerald-950/10 dark:via-transparent dark:to-transparent" />
         
-        {/* Left drifting slow mesh light orb */}
-        <motion.div
-          animate={shouldReduceMotion ? {} : {
-            scale: [1, 1.15, 0.9, 1],
-            rotate: [0, 90, 180, 360],
-          }}
-          transition={shouldReduceMotion ? {} : {
-            duration: 35,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute top-[-20%] left-[-20%] w-[80%] h-[80%] rounded-full bg-emerald-400/8 dark:bg-emerald-500/4 blur-[130px] mix-blend-screen dark:mix-blend-normal"
-        />
+        {/* Static left mesh light orb - removed rotation and continuous scaling */}
+        <div className="absolute top-[-25%] left-[-20%] w-[80%] h-[80%] rounded-full bg-emerald-400/6 dark:bg-emerald-500/3 blur-[140px]" />
 
-        {/* Right drifting slow mesh light orb */}
-        <motion.div
-          animate={shouldReduceMotion ? {} : {
-            scale: [1, 0.85, 1.1, 1],
-            rotate: [360, 270, 180, 0],
-          }}
-          transition={shouldReduceMotion ? {} : {
-            duration: 40,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute bottom-[-15%] right-[-15%] w-[90%] h-[90%] rounded-full bg-teal-400/8 dark:bg-teal-600/4 blur-[160px] mix-blend-screen dark:mix-blend-normal"
-        />
+        {/* Static right mesh light orb - removed rotation and continuous scaling */}
+        <div className="absolute bottom-[-20%] right-[-15%] w-[90%] h-[90%] rounded-full bg-teal-400/6 dark:bg-teal-600/3 blur-[160px]" />
 
         {/* Cinematic mouse-following glow directly linked to pointer interaction */}
         <motion.div
@@ -145,24 +123,24 @@ export default function Hero({ onCtaClick }: HeroProps) {
             x: shouldReduceMotion ? 0 : glowX,
             y: shouldReduceMotion ? 0 : glowY,
           }}
-          className="absolute top-[20%] left-[10%] w-[60%] h-[50%] bg-emerald-500/[0.02] dark:bg-emerald-500/[0.015] rounded-full blur-[140px]"
+          className="absolute top-[20%] left-[10%] w-[60%] h-[50%] bg-emerald-500/[0.015] dark:bg-emerald-500/[0.01] rounded-full blur-[145px]"
         />
 
-        {/* Central soft backdrop pulsing support glow */}
+        {/* Central soft backdrop support glow - made extremely slow and subtle */}
         <motion.div
           animate={shouldReduceMotion ? {} : {
-            opacity: [0.4, 0.7, 0.4],
+            opacity: [0.4, 0.48, 0.4],
           }}
           transition={shouldReduceMotion ? {} : {
-            duration: 8,
+            duration: 16,
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-1/4 left-1/3 w-[350px] h-[350px] bg-emerald-500/5 dark:bg-emerald-400/3 rounded-full blur-[110px]"
+          className="absolute top-1/4 left-1/3 w-[350px] h-[350px] bg-emerald-500/3 dark:bg-emerald-400/2 rounded-full blur-[120px]"
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
         
         {/* Left: Text Content & Action Controls */}
         <div className="lg:col-span-7 relative">
@@ -183,11 +161,11 @@ export default function Hero({ onCtaClick }: HeroProps) {
               <motion.div variants={itemVariants}>
                 <motion.div
                   inherit={false}
-                  animate={shouldReduceMotion ? {} : { y: [0, -4, 0] }}
-                  transition={shouldReduceMotion ? {} : { repeat: Infinity, duration: 5, ease: "easeInOut" }}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-emerald-200/60 dark:border-emerald-800/30 bg-emerald-500/10 dark:bg-emerald-500/5 text-emerald-700 dark:text-emerald-400 font-sans text-xs font-semibold tracking-wider uppercase backdrop-blur-sm"
+                  animate={shouldReduceMotion ? {} : { y: [0, -2, 0] }}
+                  transition={shouldReduceMotion ? {} : { repeat: Infinity, duration: 10, ease: "easeInOut" }}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-emerald-200/50 dark:border-emerald-800/20 bg-emerald-500/8 dark:bg-emerald-500/4 text-emerald-700 dark:text-emerald-400 font-sans text-xs font-semibold tracking-wider uppercase backdrop-blur-sm"
                 >
-                  <Sparkles className="h-4 w-4 text-emerald-500" />
+                  <Sparkles className="h-3.5 w-3.5 text-emerald-500" />
                   <span>Premium Digital Agency</span>
                 </motion.div>
               </motion.div>
@@ -195,7 +173,7 @@ export default function Hero({ onCtaClick }: HeroProps) {
           {/* Premium Headline */}
           <motion.h1
             variants={itemVariants}
-            className="font-sans text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-zinc-950 dark:text-white leading-[1.1]"
+            className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-[62px] font-bold tracking-tight text-zinc-950 dark:text-white leading-[1.12] md:leading-[1.08]"
           >
             We Build Websites, Brands <br className="hidden sm:inline" /> and {" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500 dark:from-emerald-400 dark:to-teal-400 font-bold">
@@ -207,7 +185,7 @@ export default function Hero({ onCtaClick }: HeroProps) {
           {/* Business Core Value Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="font-sans text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed"
+            className="font-sans text-base sm:text-[17px] text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed"
           >
             MarcVerse Digital Solutions delivers premium Website Design, Branding, UI/UX, Graphic Design, and Virtual Assistant Services. We help businesses build an elegant digital presence and accelerate performance.
           </motion.p>
@@ -224,9 +202,9 @@ export default function Hero({ onCtaClick }: HeroProps) {
                 initial={{ opacity: 0, scale: 0.94 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={shouldReduceMotion ? { duration: 0.1 } : { duration: 0.45, delay: 0.25 + idx * 0.04, ease: "easeOut" }}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-zinc-700 dark:text-zinc-300 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 shadow-sm"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-zinc-700 dark:text-zinc-300 bg-white/60 dark:bg-zinc-900/40 border border-zinc-100/80 dark:border-zinc-800/50 shadow-[0_2px_8px_rgba(0,0,0,0.02)] backdrop-blur-sm"
               >
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
+                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500/90" />
                 {badge}
               </motion.span>
             ))}
@@ -239,16 +217,16 @@ export default function Hero({ onCtaClick }: HeroProps) {
           >
             <div className="relative group w-full sm:w-auto">
               {/* Soft visual glow expansion layer behind primary CTA button */}
-              <div className="absolute -inset-1.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 opacity-25 dark:opacity-35 blur-md group-hover:opacity-65 transition duration-300 pointer-events-none" />
+              <div className="absolute -inset-1.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 opacity-20 dark:opacity-30 blur-md group-hover:opacity-50 transition duration-300 pointer-events-none" />
               <motion.button
                 onClick={() => onCtaClick('contact')}
-                whileHover={shouldReduceMotion ? {} : { y: -2, scale: 1.02 }}
+                whileHover={shouldReduceMotion ? {} : { y: -2, scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-sans text-sm font-semibold tracking-wide text-white bg-emerald-500 dark:bg-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-500 shadow-[0_4px_12px_rgba(16,185,129,0.15)] dark:shadow-none transition-colors duration-200 cursor-pointer"
+                className="relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-sans text-sm font-semibold tracking-wide text-white bg-emerald-500 dark:bg-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-500 shadow-[0_4px_12px_rgba(16,185,129,0.12)] dark:shadow-none transition-colors duration-200 cursor-pointer"
               >
                 Start Your Project
-                <ArrowUpRight className="h-4.5 w-4.5 animate-pulse" />
+                <ArrowUpRight className="h-4.5 w-4.5 transition-transform duration-250 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </motion.button>
             </div>
 
@@ -308,32 +286,32 @@ export default function Hero({ onCtaClick }: HeroProps) {
               y: shouldReduceMotion ? imageY : imageYCombined,
             }}
           >
-            {/* Decorative glowing backdrops */}
-            <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-emerald-500 to-teal-400 opacity-20 dark:opacity-30 blur-2xl pointer-events-none" />
+            {/* Decorative glowing backdrops - made softer and less aggressive */}
+            <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-emerald-500 to-teal-400 opacity-12 dark:opacity-20 blur-3xl pointer-events-none" />
             
-            <div className="relative rounded-3xl overflow-hidden border border-white/60 dark:border-zinc-800/80 shadow-[0_20px_50px_rgba(0,0,0,0.12)] bg-slate-100 dark:bg-zinc-900">
+            <div className="relative rounded-3xl overflow-hidden border border-white/80 dark:border-zinc-800/80 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] dark:shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5)] bg-slate-100 dark:bg-zinc-900 ring-1 ring-zinc-950/5 dark:ring-white/5">
               {/* Aspect ratio frame containing generated image */}
               <div className="overflow-hidden relative">
                 <OptimizedImage
                   src={heroShowcaseImage}
                   alt="MarcVerse Digital Solutions abstract creative asset"
                   aspectRatioClass="aspect-[4/3] sm:aspect-video lg:aspect-[4/5]"
-                  imageClassName="transition-transform duration-700 hover:scale-105"
+                  imageClassName="transition-transform duration-700 hover:scale-103"
                   loading="eager"
                   fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/40 via-transparent to-transparent pointer-events-none z-10" />
               </div>
 
-              {/* Glassmorphic Overlay Card */}
+              {/* Glassmorphic Overlay Card - restricted to max 2px slow floating */}
               <motion.div 
                 inherit={false}
-                animate={shouldReduceMotion ? {} : { y: [0, 4, 0] }}
-                transition={shouldReduceMotion ? {} : { repeat: Infinity, duration: 6, ease: 'easeInOut', delay: 1 }}
+                animate={shouldReduceMotion ? {} : { y: [0, 2, 0] }}
+                transition={shouldReduceMotion ? {} : { repeat: Infinity, duration: 12, ease: 'easeInOut', delay: 1.5 }}
                 className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/75 dark:bg-black/75 backdrop-blur-md border border-white/40 dark:border-zinc-800/60 shadow-lg flex items-center justify-between z-10"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
@@ -345,24 +323,24 @@ export default function Hero({ onCtaClick }: HeroProps) {
                     </p>
                   </div>
                 </div>
-                <span className="inline-flex items-center px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wider bg-emerald-500 text-white shadow-sm">
+                <span className="inline-flex items-center px-2.5 py-1 rounded-md text-[9px] font-bold uppercase tracking-wider bg-emerald-500 text-white shadow-sm">
                   Live Preview
                 </span>
               </motion.div>
             </div>
 
-            {/* Mini-floating accents */}
+            {/* Mini-floating accents - restricted to 2px movement and slowed down */}
             <motion.div
               style={{ y: badgeY }}
               className="absolute -top-6 -right-4 z-20 pointer-events-none"
             >
               <motion.div
                 inherit={false}
-                animate={shouldReduceMotion ? {} : { y: [0, -6, 0] }}
-                transition={shouldReduceMotion ? {} : { repeat: Infinity, duration: 5, ease: 'easeInOut' }}
+                animate={shouldReduceMotion ? {} : { y: [0, -2, 0] }}
+                transition={shouldReduceMotion ? {} : { repeat: Infinity, duration: 11, ease: 'easeInOut' }}
                 className="px-4 py-2.5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 shadow-xl flex items-center gap-2"
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
                 <span className="font-sans text-xs font-semibold text-zinc-800 dark:text-zinc-200">
                   Active VA & Design Desk
                 </span>
@@ -387,10 +365,10 @@ export default function Hero({ onCtaClick }: HeroProps) {
             <motion.div
               inherit={false}
               animate={shouldReduceMotion ? {} : {
-                y: [0, 12, 0],
+                y: [0, 6, 0],
               }}
               transition={shouldReduceMotion ? {} : {
-                duration: 1.8,
+                duration: 3.5,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
