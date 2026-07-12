@@ -204,11 +204,11 @@ export default function FeaturedWork() {
               className="relative w-full aspect-[4/3] sm:aspect-[16/12] md:aspect-[1.28/1] rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-zinc-200/50 dark:border-zinc-800/40 bg-zinc-950 flex items-center justify-center group"
             >
               {/* Showcase Image */}
-              <img
+              <OptimizedImage
                 src={showcaseImage}
                 alt="MarcVerse Digital Solutions Showcase Mockup"
-                className="w-full h-full object-cover transition-transform duration-1000 ease-out hover:scale-[1.01]"
-                referrerPolicy="no-referrer"
+                aspectRatioClass="w-full h-full"
+                imageClassName="transition-transform duration-1000 ease-out hover:scale-[1.01]"
               />
 
               {/* Subtle Gradient Overlay (5% to 10% opacity) matching visual style */}
