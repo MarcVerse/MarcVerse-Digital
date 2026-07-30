@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter, ArrowUpRight, ArrowUp } from 'lucide-react';
 import Logo from './Logo';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -41,6 +42,7 @@ export default function Footer() {
     { label: 'Services', target: 'services' },
     { label: 'How We Work', target: 'process' },
     { label: 'Featured Work', target: 'featured-work' },
+    { label: 'Portfolio', target: '/portfolio' },
     { label: 'FAQ', target: 'faq' },
     { label: 'Contact', target: 'contact' },
   ];
@@ -63,9 +65,9 @@ export default function Footer() {
       <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-emerald-500/5 blur-[100px] pointer-events-none" />
       <div className="absolute top-0 left-10 w-60 h-60 rounded-full bg-teal-500/5 blur-[80px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-10 lg:py-12">
         {/* Main Columns Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 pb-12 border-b border-zinc-100 dark:border-zinc-900">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 pb-8 border-b border-zinc-100 dark:border-zinc-900">
           
           {/* COLUMN 1: Brand & Description */}
           <div className="flex flex-col space-y-6">
@@ -112,20 +114,36 @@ export default function Footer() {
               Quick Links
             </h3>
             <ul className="space-y-3.5">
-              {quickLinks.map((link) => (
-                <li key={link.label}>
-                  <button
-                    onClick={() => handleScrollTo(link.target)}
-                    className="group inline-flex items-center gap-1.5 font-sans text-sm text-zinc-500 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/20 rounded px-1.5 py-0.5 -ml-1.5"
-                  >
-                    <span className="relative">
-                      {link.label}
-                      <span className="absolute bottom-0 left-0 w-0 h-px bg-emerald-500 dark:bg-emerald-400 transition-all duration-300 group-hover:w-full" />
-                    </span>
-                    <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-y-0.5 translate-x-0.5 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 text-emerald-500 dark:text-emerald-400" />
-                  </button>
-                </li>
-              ))}
+              {quickLinks.map((link) => {
+                const isRoute = link.target.startsWith('/');
+                return (
+                  <li key={link.label}>
+                    {isRoute ? (
+                      <Link
+                        to={link.target}
+                        className="group inline-flex items-center gap-1.5 font-sans text-sm text-zinc-500 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/20 rounded px-1.5 py-0.5 -ml-1.5"
+                      >
+                        <span className="relative">
+                          {link.label}
+                          <span className="absolute bottom-0 left-0 w-0 h-px bg-emerald-500 dark:bg-emerald-400 transition-all duration-300 group-hover:w-full" />
+                        </span>
+                        <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-y-0.5 translate-x-0.5 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 text-emerald-500 dark:text-emerald-400" />
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() => handleScrollTo(link.target)}
+                        className="group inline-flex items-center gap-1.5 font-sans text-sm text-zinc-500 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/20 rounded px-1.5 py-0.5 -ml-1.5"
+                      >
+                        <span className="relative">
+                          {link.label}
+                          <span className="absolute bottom-0 left-0 w-0 h-px bg-emerald-500 dark:bg-emerald-400 transition-all duration-300 group-hover:w-full" />
+                        </span>
+                        <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-y-0.5 translate-x-0.5 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 text-emerald-500 dark:text-emerald-400" />
+                      </button>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -216,7 +234,7 @@ export default function Footer() {
 
         {/* Footer Bottom / Copyright & Back To Top */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-8">
-          <p className="font-sans text-xs text-zinc-450 dark:text-zinc-500 text-center sm:text-left leading-relaxed">
+          <p className="font-sans text-xs text-zinc-400 dark:text-zinc-500 text-center sm:text-left leading-relaxed">
             &copy; {currentYear} MarcVerse Digital Solutions. All Rights Reserved.
           </p>
           
@@ -231,7 +249,7 @@ export default function Footer() {
             {/* Back to Top integrated anchor button */}
             <button
               onClick={handleScrollToTop}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-100 dark:border-zinc-900 bg-zinc-50/50 dark:bg-zinc-900/30 text-zinc-450 dark:text-zinc-500 hover:text-emerald-500 dark:hover:text-emerald-400 hover:border-emerald-500/20 dark:hover:border-emerald-400/20 hover:bg-emerald-50/10 dark:hover:bg-emerald-500/5 transition-all duration-300 font-sans text-xs font-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/10"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-100 dark:border-zinc-900 bg-zinc-50/50 dark:bg-zinc-900/30 text-zinc-400 dark:text-zinc-500 hover:text-emerald-500 dark:hover:text-emerald-400 hover:border-emerald-500/20 dark:hover:border-emerald-400/20 hover:bg-emerald-50/10 dark:hover:bg-emerald-500/5 transition-all duration-300 font-sans text-xs font-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/10"
               aria-label="Scroll back to top"
               title="Back to Top"
             >

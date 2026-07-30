@@ -79,31 +79,32 @@ export default function ShowcaseMockup() {
       
       {/* Decorative backdrop gradients for depth */}
       <div className="absolute inset-0 bg-radial-gradient from-emerald-500/5 via-transparent to-transparent blur-3xl -z-10 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-emerald-500/[0.02] dark:bg-emerald-500/[0.01] rounded-full blur-[100px] -z-10 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-emerald-500/2 dark:bg-emerald-500/1 rounded-full blur-[80px] -z-10 pointer-events-none" />
 
       {/* Floating Service Badges (Rendered absolutely, hidden on very small screens to maintain layout integrity) */}
       {badges.map((badge) => {
         const IconComponent = badge.icon;
         return (
-          <motion.div
-            key={badge.id}
-            id={`badge-${badge.id}`}
-            style={{
-              position: 'absolute',
-              ...badge.initialPos
-            }}
-            animate={{
-              y: badge.floatRange,
-            }}
-            transition={{
-              duration: badge.duration,
-              repeat: Infinity,
-              repeatType: 'reverse',
-              ease: 'easeInOut',
-            }}
-            whileHover={{ scale: 1.05, y: 0 }}
-            className={`hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-full border ${badge.borderColor} bg-gradient-to-r ${badge.color} backdrop-blur-md shadow-lg shadow-zinc-950/[0.03] z-30 transition-shadow duration-300 hover:shadow-xl cursor-default`}
-          >
+           <motion.div
+             key={badge.id}
+             id={`badge-${badge.id}`}
+             style={{
+               position: 'absolute',
+               ...badge.initialPos,
+               willChange: 'transform',
+             }}
+             animate={{
+               y: badge.floatRange,
+             }}
+             transition={{
+               duration: badge.duration,
+               repeat: Infinity,
+               repeatType: 'reverse',
+               ease: 'easeInOut',
+             }}
+             whileHover={{ scale: 1.05, y: 0 }}
+             className={`hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-full border ${badge.borderColor} bg-linear-to-r ${badge.color} backdrop-blur-md shadow-lg shadow-zinc-950/[0.03] z-30 transition-shadow duration-300 hover:shadow-xl cursor-default`}
+           >
             <IconComponent className={`w-4 h-4 ${badge.textColor}`} />
             <span className={`font-sans text-xs font-bold tracking-wide ${badge.textColor}`}>
               {badge.label}
@@ -277,7 +278,7 @@ export default function ShowcaseMockup() {
           </div>
 
           {/* Laptop Base Keyboard Deck */}
-          <div className="relative mx-auto w-[108%] -left-[4%] h-2.5 sm:h-4 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 rounded-b-xl sm:rounded-b-2xl shadow-2xl border-t border-zinc-600 flex items-center justify-center">
+          <div className="relative mx-auto w-[108%] -left-[4%] h-2.5 sm:h-4 bg-linear-to-b from-zinc-700 via-zinc-800 to-zinc-900 rounded-b-xl sm:rounded-b-2xl shadow-2xl border-t border-zinc-600 flex items-center justify-center">
             {/* Center Indent notch */}
             <div className="absolute top-0 w-20 sm:w-32 h-1.5 bg-zinc-950 rounded-b-md" />
           </div>
@@ -326,7 +327,7 @@ export default function ShowcaseMockup() {
                 </div>
 
                 {/* Mobile Hero Block */}
-                <div className="rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 p-2 sm:p-3 text-left flex flex-col gap-1 shadow-sm">
+                <div className="rounded-xl bg-linear-to-br from-emerald-500 to-teal-600 p-2 sm:p-3 text-left flex flex-col gap-1 shadow-sm">
                   <span className="text-[5px] sm:text-[7px] font-bold text-white/90 uppercase tracking-widest">
                     Your Digital Hub
                   </span>

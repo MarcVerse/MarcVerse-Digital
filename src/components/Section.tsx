@@ -32,7 +32,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`relative ${spacingClasses} overflow-hidden transition-colors duration-300 scroll-mt-[72px] md:scroll-mt-[80px] ${className}`}
+      className={`relative ${spacingClasses} overflow-hidden transition-colors duration-300 scroll-mt-18 md:scroll-mt-20 ${className}`}
       {...props}
     >
       {backgrounds}

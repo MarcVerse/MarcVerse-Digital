@@ -64,17 +64,17 @@ export default function Trust() {
       }
     >
       {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 flex flex-col items-center gap-4">
+      <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10 flex flex-col items-center gap-4">
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-200/60 dark:border-emerald-800/30 bg-emerald-500/5 dark:bg-emerald-500/5 text-emerald-700 dark:text-emerald-400 font-sans text-xs font-semibold tracking-wider uppercase"
           >
             Our Commitment
           </div>
           
-          <h2
-            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-950 dark:text-white"
+            <h2
+              className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 dark:text-white"
           >
-            Built on <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500 dark:from-emerald-400 dark:to-teal-400 font-bold">Trust</span>
+            Built on <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-600 to-teal-500 dark:from-emerald-400 dark:to-teal-400 font-bold">Trust</span>
           </h2>
           
           <p
@@ -90,7 +90,7 @@ export default function Trust() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6"
         >
           {commitments.map((commitment, idx) => {
             const Icon = commitment.icon;
@@ -99,18 +99,18 @@ export default function Trust() {
                 key={idx}
                 variants={itemVariants}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className="group relative rounded-2xl p-8 bg-white dark:bg-zinc-900/40 border border-zinc-100 dark:border-zinc-800/60 transition-colors duration-300 hover:bg-white dark:hover:bg-zinc-900 hover:border-emerald-500/20 dark:hover:border-emerald-400/20 hover:shadow-xl hover:shadow-emerald-500/[0.02]"
+                className="group relative rounded-2xl p-6 bg-white dark:bg-zinc-900/40 border border-zinc-100 dark:border-zinc-800/60 transition-colors duration-300 hover:bg-white dark:hover:bg-zinc-900 hover:border-emerald-500/20 dark:hover:border-emerald-400/20 hover:shadow-xl hover:shadow-emerald-500/2"
               >
                 {/* Top decorative gradient border on hover */}
-                <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-linear-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 {/* Icon wrapper */}
-                <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-zinc-50 dark:bg-zinc-800/80 shadow-sm border border-zinc-100 dark:border-zinc-700/50 group-hover:border-emerald-500/20 group-hover:shadow-md group-hover:shadow-emerald-500/5 transition-all duration-300">
+                <div className="mb-5 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-zinc-50 dark:bg-zinc-800/80 shadow-sm border border-zinc-100 dark:border-zinc-700/50 group-hover:border-emerald-500/20 group-hover:shadow-md group-hover:shadow-emerald-500/5 transition-all duration-300">
                   <Icon className="h-6 w-6 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
                 </div>
 
                 {/* Commitment Title */}
-                <h3 className="font-display text-lg font-bold text-zinc-950 dark:text-white mb-3 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-200">
+                <h3 className="font-display text-base font-bold text-zinc-950 dark:text-white mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-200">
                   {commitment.title}
                 </h3>
 

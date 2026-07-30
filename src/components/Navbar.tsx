@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ArrowUpRight, Cpu } from 'lucide-react';
-import { Theme, NavItem } from '../types';
-import ThemeToggle from './ThemeToggle';
+import { Menu, X, ExternalLink } from 'lucide-react';
+import { NavItem } from '../types';
 import Logo from './Logo';
+import { Link } from 'react-router-dom';
 
 interface NavbarProps {
-  theme: Theme;
-  toggleTheme: () => void;
   activeSection: string;
   scrollToSection: (section: string) => void;
 }
@@ -18,11 +16,12 @@ const navItems: NavItem[] = [
   { label: 'Services', href: '#services' },
   { label: 'How We Work', href: '#process' },
   { label: 'Featured Work', href: '#featured-work' },
+  { label: 'Portfolio', href: '/portfolio' },
+  { label: 'About', href: '#about' },
   { label: 'FAQ', href: '#faq' },
-  { label: 'Contact', href: '#contact' },
 ];
 
-export default function Navbar({ theme, toggleTheme, activeSection, scrollToSection }: NavbarProps) {
+export default function Navbar({ activeSection, scrollToSection }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -30,7 +29,7 @@ export default function Navbar({ theme, toggleTheme, activeSection, scrollToSect
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -48,11 +47,11 @@ export default function Navbar({ theme, toggleTheme, activeSection, scrollToSect
       id="main-header"
       className={`fixed top-0 left-0 right-0 z-50 transition-[padding,background-color,border-color,box-shadow,backdrop-filter] duration-500 ease-in-out ${
         scrolled
-          ? 'py-3.5 bg-white/75 dark:bg-zinc-950/75 backdrop-blur-xl border-b border-zinc-200/50 dark:border-zinc-800/50 shadow-lg shadow-zinc-100/30 dark:shadow-black/20'
+          ? 'py-3.5 bg-zinc-950/75 backdrop-blur-xl border-b border-zinc-800/50 shadow-lg shadow-black/20'
           : 'py-5.5 bg-transparent border-b border-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center">
         {/* Logo */}
         <a
           id="logo-brand"
@@ -61,41 +60,55 @@ export default function Navbar({ theme, toggleTheme, activeSection, scrollToSect
             e.preventDefault();
             handleNavClick('#home');
           }}
-          className="group cursor-pointer"
+          className="group cursor-pointer shrink-0"
         >
           <Logo size="md" />
         </a>
 
-        {/* Desktop Nav Items */}
-        <nav id="desktop-navigation" className="hidden md:flex items-center gap-8">
-          <ul className="flex items-center gap-8">
+        {/* Desktop Nav - centered */}
+        <nav id="desktop-navigation" className="hidden md:flex flex-1 justify-center">
+          <ul className="flex items-center gap-9">
             {navItems.map((item) => {
               const targetId = item.href.replace('#', '');
-              const isActive = activeSection === targetId;
+              const isRoute = !item.href.startsWith('#');
+              const isActive = isRoute ? false : activeSection === targetId;
               return (
                 <li key={item.label} className="relative">
-                  <a
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const id = item.href.replace('#', '');
-                      document.getElementById(id)?.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                      });
-                    }}
-                    className={`font-sans text-sm font-medium transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-emerald-500 rounded px-1.5 py-0.5 outline-none ${
-                      isActive
-                        ? 'text-emerald-600 dark:text-emerald-400'
-                        : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white'
-                    }`}
-                  >
-                    {item.label}
-                  </a>
+                  {isRoute ? (
+                    <Link
+                      to={item.href}
+                      className={`font-sans text-sm font-medium transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-emerald-500 rounded px-1.5 py-0.5 outline-none ${
+                        isActive
+                          ? 'text-emerald-400'
+                          : 'text-zinc-400 hover:text-white'
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={item.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const id = item.href.replace('#', '');
+                        document.getElementById(id)?.scrollIntoView({
+                          behavior: 'smooth',
+                          block: 'start'
+                        });
+                      }}
+                      className={`font-sans text-sm font-medium transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-emerald-500 rounded px-1.5 py-0.5 outline-none ${
+                        isActive
+                          ? 'text-emerald-400'
+                          : 'text-zinc-400 hover:text-white'
+                      }`}
+                    >
+                      {item.label}
+                    </a>
+                  )}
                   {isActive && (
                     <motion.div
                       layoutId="activeIndicator"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-emerald-500 dark:bg-emerald-400"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-emerald-400"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -106,18 +119,21 @@ export default function Navbar({ theme, toggleTheme, activeSection, scrollToSect
         </nav>
 
         {/* Right Actions */}
-        <div id="nav-actions-desktop" className="hidden md:flex items-center gap-4">
-          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+        <div id="nav-actions-desktop" className="hidden md:flex items-center gap-6">
+          <button
+            onClick={() => scrollToSection('contact')}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-500 shadow-[0_4px_12px_rgba(16,185,129,0.2)] hover:shadow-[0_4px_16px_rgba(16,185,129,0.3)] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+          >
+            Let's Talk
+          </button>
         </div>
 
         {/* Mobile controls */}
         <div id="nav-actions-mobile" className="flex md:hidden items-center gap-3">
-          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-          
           <button
             id="mobile-menu-toggle"
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2.5 rounded-full border border-gray-200 dark:border-zinc-800 bg-gray-50/50 dark:bg-zinc-900/50 text-zinc-800 dark:text-zinc-200 cursor-pointer"
+            className="p-2.5 rounded-full border border-zinc-800 bg-zinc-900/50 text-zinc-200 cursor-pointer"
             aria-label="Toggle Menu"
           >
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -134,7 +150,7 @@ export default function Navbar({ theme, toggleTheme, activeSection, scrollToSect
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="md:hidden overflow-hidden bg-white/90 dark:bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-200/50 dark:border-zinc-800/50"
+            className="md:hidden overflow-hidden bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-800/50"
           >
             <div className="px-6 py-6 flex flex-col gap-5">
               <nav id="mobile-nav-list-wrapper">
@@ -148,16 +164,12 @@ export default function Navbar({ theme, toggleTheme, activeSection, scrollToSect
                           href={item.href}
                           onClick={(e) => {
                             e.preventDefault();
-                            const id = item.href.replace('#', '');
-                            document.getElementById(id)?.scrollIntoView({
-                              behavior: 'smooth',
-                              block: 'start'
-                            });
+                            handleNavClick(item.href);
                           }}
-                          className={`font-sans text-base font-semibold py-2.5 border-b border-zinc-100 dark:border-zinc-900/60 flex items-center justify-between focus-visible:ring-2 focus-visible:ring-emerald-500 rounded px-2 outline-none ${
+                          className={`font-sans text-base font-semibold py-2.5 border-b border-zinc-800/60 flex items-center justify-between focus-visible:ring-2 focus-visible:ring-emerald-500 rounded px-2 outline-none ${
                             isActive
-                              ? 'text-emerald-600 dark:text-emerald-400'
-                              : 'text-zinc-600 dark:text-zinc-400'
+                              ? 'text-emerald-400'
+                              : 'text-zinc-400'
                           }`}
                         >
                           <span>{item.label}</span>

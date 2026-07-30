@@ -16,7 +16,7 @@ export default function BackToTop() {
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
     // Initial check
     toggleVisibility();
 
@@ -39,7 +39,7 @@ export default function BackToTop() {
           exit={{ opacity: 0, scale: 0.8, y: 15 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           onClick={scrollToTop}
-          className="fixed bottom-[88px] right-6 sm:right-8 z-40 flex items-center justify-center w-12 h-12 rounded-full text-white bg-emerald-500 dark:bg-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-500 shadow-lg shadow-emerald-500/20 dark:shadow-none hover:shadow-emerald-500/35 transition-all duration-300 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-950"
+          className="fixed bottom-22 right-6 sm:right-8 z-40 flex items-center justify-center w-12 h-12 rounded-full text-white bg-emerald-500 dark:bg-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-500 shadow-lg shadow-emerald-500/20 dark:shadow-none hover:shadow-emerald-500/35 transition-all duration-300 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-950"
           aria-label="Back to top"
           title="Back to top"
         >

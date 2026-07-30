@@ -189,7 +189,7 @@ Thank you.`;
       }
     >
       {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20 flex flex-col items-center gap-4">
+      <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12 flex flex-col items-center gap-4">
         <div
           className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-500/15"
         >
@@ -198,9 +198,9 @@ Thank you.`;
         </div>
         
         <h2
-          className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-950 dark:text-white"
+          className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 dark:text-white"
         >
-          Let's Build Something <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500 dark:from-emerald-400 dark:to-teal-400 font-bold">Great Together</span>
+          Let's Build Something <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-600 to-teal-500 dark:from-emerald-400 dark:to-teal-400 font-bold">Great Together</span>
         </h2>
         
         <p
@@ -210,7 +210,7 @@ Thank you.`;
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
         
         {/* Left Column: Contact Cards Stack */}
         <div className="lg:col-span-5 space-y-6">
@@ -220,7 +220,7 @@ Thank you.`;
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
-            className="relative rounded-3xl p-8 md:p-10 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800/80 shadow-xl shadow-zinc-200/20 dark:shadow-none overflow-hidden"
+            className="relative rounded-3xl p-6 md:p-7 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800/80 shadow-xl shadow-zinc-200/20 dark:shadow-none overflow-hidden"
           >
             {/* Background Accent Glow */}
             <div className="absolute top-0 right-0 w-36 h-36 rounded-full bg-emerald-500/5 blur-2xl pointer-events-none" />
@@ -228,18 +228,18 @@ Thank you.`;
             <h3 className="font-display text-xl md:text-2xl font-bold text-zinc-950 dark:text-white mb-2">
               Contact Information
             </h3>
-            <p className="font-sans text-sm text-zinc-500 dark:text-zinc-400 mb-8 leading-relaxed">
+            <p className="font-sans text-sm text-zinc-500 dark:text-zinc-400 mb-5 leading-relaxed">
               Reach out to us directly. We're here to answer any questions and assist with your project needs.
             </p>
 
             {/* Contact Details List */}
-            <div className="space-y-6">
+            <div className="space-y-5">
               {/* Email Info */}
               <div className="flex items-start gap-4 group">
                 <div className="flex-shrink-0 flex items-center justify-center w-11 h-11 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
                   <Mail className="h-5 w-5" />
                 </div>
-                <div className="flex-grow min-w-0">
+                <div className="grow min-w-0">
                   <p className="font-sans text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider">
                     Email Address
                   </p>
@@ -267,7 +267,7 @@ Thank you.`;
                 <div className="flex-shrink-0 flex items-center justify-center w-11 h-11 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
                   <Phone className="h-5 w-5" />
                 </div>
-                <div className="flex-grow min-w-0">
+                <div className="grow min-w-0">
                   <p className="font-sans text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider">
                     Call Us
                   </p>
@@ -297,7 +297,7 @@ Thank you.`;
                 <div className="flex-shrink-0 flex items-center justify-center w-11 h-11 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
                   <MapPin className="h-5 w-5" />
                 </div>
-                <div className="flex-grow min-w-0">
+                <div className="grow min-w-0">
                   <p className="font-sans text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider">
                     Our Location
                   </p>
@@ -312,7 +312,7 @@ Thank you.`;
                 <div className="flex-shrink-0 flex items-center justify-center w-11 h-11 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
                   <Clock className="h-5 w-5" />
                 </div>
-                <div className="flex-grow min-w-0">
+                <div className="grow min-w-0">
                   <p className="font-sans text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider">
                     Business Hours
                   </p>
@@ -388,7 +388,7 @@ Thank you.`;
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           className="lg:col-span-7 w-full"
         >
-          <div className="rounded-3xl p-8 md:p-10 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800/80 shadow-xl shadow-zinc-200/20 dark:shadow-none relative h-full flex flex-col justify-center">
+          <div className="rounded-3xl p-6 md:p-7 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800/80 shadow-xl shadow-zinc-200/20 dark:shadow-none relative h-full flex flex-col justify-center">
             <AnimatePresence mode="wait">
               {!isSuccess ? (
                 <motion.form
@@ -398,7 +398,7 @@ Thank you.`;
                   initial={{ opacity: 1 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="space-y-6"
+                  className="space-y-4"
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {/* Full Name */}
@@ -420,7 +420,7 @@ Thank you.`;
                         aria-invalid={!!errors.name}
                         aria-describedby={errors.name ? "name-error" : undefined}
                         required
-                        className={`w-full px-4 py-3.5 rounded-xl border bg-white dark:bg-zinc-900/50 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 transition-all duration-200 outline-none ${
+                         className={`w-full px-3 py-2.5 rounded-xl border bg-white dark:bg-zinc-900/50 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 transition-all duration-200 outline-none ${
                           errors.name 
                             ? 'border-red-500/80 dark:border-red-500/50 focus:border-red-500 focus:ring-2 focus:ring-red-500/10' 
                             : 'border-zinc-200 dark:border-zinc-800 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-2 focus:ring-emerald-500/15 dark:focus:ring-emerald-400/10'
@@ -452,7 +452,7 @@ Thank you.`;
                         aria-invalid={!!errors.email}
                         aria-describedby={errors.email ? "email-error" : undefined}
                         required
-                        className={`w-full px-4 py-3.5 rounded-xl border bg-white dark:bg-zinc-900/50 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 transition-all duration-200 outline-none ${
+                         className={`w-full px-3 py-2.5 rounded-xl border bg-white dark:bg-zinc-900/50 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 transition-all duration-200 outline-none ${
                           errors.email 
                             ? 'border-red-500/80 dark:border-red-500/50 focus:border-red-500 focus:ring-2 focus:ring-red-500/10' 
                             : 'border-zinc-200 dark:border-zinc-800 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-2 focus:ring-emerald-500/15 dark:focus:ring-emerald-400/10'
@@ -484,7 +484,7 @@ Thank you.`;
                         aria-invalid={!!errors.service}
                         aria-describedby={errors.service ? "service-error" : undefined}
                         required
-                        className={`w-full px-4 py-3.5 rounded-xl border bg-white dark:bg-zinc-900/50 appearance-none transition-all duration-200 outline-none cursor-pointer ${
+                        className={`w-full px-3 py-2.5 rounded-xl border bg-white dark:bg-zinc-900/50 appearance-none transition-all duration-200 outline-none cursor-pointer ${
                           formData.service === '' ? 'text-zinc-400 dark:text-zinc-500' : 'text-zinc-900 dark:text-zinc-100'
                         } ${
                           errors.service 
@@ -531,7 +531,7 @@ Thank you.`;
                       aria-invalid={!!errors.message}
                       aria-describedby={errors.message ? "message-error" : undefined}
                       required
-                      className={`w-full px-4 py-3.5 rounded-xl border bg-white dark:bg-zinc-900/50 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 transition-all duration-200 outline-none resize-none ${
+                       className={`w-full px-3 py-2.5 rounded-xl border bg-white dark:bg-zinc-900/50 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 transition-all duration-200 outline-none resize-none ${
                         errors.message 
                           ? 'border-red-500/80 dark:border-red-500/50 focus:border-red-500 focus:ring-2 focus:ring-red-500/10' 
                           : 'border-zinc-200 dark:border-zinc-800 focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-2 focus:ring-emerald-500/15 dark:focus:ring-emerald-400/10'
@@ -549,7 +549,7 @@ Thank you.`;
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-sans text-sm font-semibold tracking-wide text-white bg-emerald-500 dark:bg-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-500 shadow-[0_6px_20px_rgba(16,185,129,0.25)] hover:shadow-[0_8px_24px_rgba(16,185,129,0.35)] hover:-translate-y-0.5 disabled:opacity-50 disabled:translate-y-0 disabled:shadow-none transition-all duration-200 cursor-pointer focus:ring-2 focus:ring-emerald-500/40 focus:ring-offset-2 dark:focus:ring-offset-zinc-900 outline-none"
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-sans text-sm font-semibold tracking-wide text-white bg-emerald-500 dark:bg-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-500 shadow-[0_6px_20px_rgba(16,185,129,0.25)] hover:shadow-[0_8px_24px_rgba(16,185,129,0.35)] hover:-translate-y-0.5 disabled:opacity-50 disabled:translate-y-0 disabled:shadow-none transition-all duration-200 cursor-pointer focus:ring-2 focus:ring-emerald-500/40 focus:ring-offset-2 dark:focus:ring-offset-zinc-900 outline-none"
                     >
                       {isSubmitting ? (
                         <>
@@ -644,7 +644,7 @@ Thank you.`;
               aria-labelledby="whatsapp-modal-title"
             >
               {/* Top ambient color stripe to indicate WhatsApp action */}
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 to-teal-500" />
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-linear-to-r from-emerald-500 to-teal-500" />
 
               {/* Close button */}
               <button

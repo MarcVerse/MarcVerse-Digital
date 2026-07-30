@@ -1,16 +1,23 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowLeft, Home, Compass, Terminal, ShieldAlert } from 'lucide-react';
 import Logo from './Logo';
-import ThemeToggle from './ThemeToggle';
 
 interface NotFoundProps {
-  onReturnHome: () => void;
-  theme: 'light' | 'dark';
-  toggleTheme: () => void;
+  onReturnHome?: () => void;
 }
 
-export default function NotFound({ onReturnHome, theme, toggleTheme }: NotFoundProps) {
+export default function NotFound({ onReturnHome }: NotFoundProps) {
+  const navigate = useNavigate();
+
+  const handleReturnHome = () => {
+    if (onReturnHome) {
+      onReturnHome();
+    }
+    navigate('/');
+  };
+
   return (
     <div className="min-h-screen relative overflow-hidden bg-slate-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 flex flex-col justify-between transition-colors duration-300">
       
@@ -18,7 +25,6 @@ export default function NotFound({ onReturnHome, theme, toggleTheme }: NotFoundP
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-500/5 dark:bg-emerald-500/10 blur-[120px]" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-zinc-400/10 dark:bg-zinc-800/10 blur-[120px]" />
-        {/* Subtle grid pattern for MarcVerse digital style */}
         <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] dark:bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:24px_24px] opacity-60" />
       </div>
 
@@ -33,13 +39,12 @@ export default function NotFound({ onReturnHome, theme, toggleTheme }: NotFoundP
               <Terminal className="w-3.5 h-3.5 text-emerald-500 animate-pulse" />
               <span>ERROR_CODE_404</span>
             </span>
-            <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
           </div>
         </div>
       </header>
 
       {/* Main Container */}
-      <main className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20 w-full flex-grow flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
+      <main className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20 w-full grow flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
         
         {/* Left Side: Copy and Actions */}
         <motion.div 
@@ -59,7 +64,6 @@ export default function NotFound({ onReturnHome, theme, toggleTheme }: NotFoundP
             <h1 className="text-8xl md:text-9xl font-display font-extrabold tracking-tighter text-zinc-900 dark:text-white leading-none">
               404
             </h1>
-            {/* Glowing Accent Circle under 404 text */}
             <div className="absolute -top-4 -left-4 w-12 h-12 bg-emerald-500/20 dark:bg-emerald-500/30 rounded-full blur-xl" />
           </div>
 
@@ -74,15 +78,15 @@ export default function NotFound({ onReturnHome, theme, toggleTheme }: NotFoundP
           {/* Interactive Button Group */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
             <button
-              onClick={onReturnHome}
-              className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-sans font-semibold shadow-lg shadow-emerald-500/20 dark:shadow-emerald-950/40 hover:shadow-emerald-500/30 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              onClick={handleReturnHome}
+              className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-linear-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-sans font-semibold shadow-lg shadow-emerald-500/20 dark:shadow-emerald-950/40 hover:shadow-emerald-500/30 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
               <Home className="w-4.5 h-4.5" />
               <span>Return Home</span>
             </button>
 
             <button
-              onClick={onReturnHome}
+              onClick={handleReturnHome}
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-transparent hover:bg-zinc-100 dark:hover:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 font-sans font-semibold transition-all duration-300 cursor-pointer"
             >
               <ArrowLeft className="w-4.5 h-4.5" />

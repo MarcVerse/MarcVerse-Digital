@@ -30,7 +30,7 @@ interface OptimizedImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElem
   
   /**
    * Aspect ratio class to prevent layout shifts (CLS).
-   * E.g. 'aspect-video', 'aspect-[4/3]', 'aspect-[4/5]'.
+   * E.g. 'aspect-video', 'aspect-4/3', 'aspect-[4/5]'.
    */
   aspectRatioClass?: string;
   
@@ -88,7 +88,7 @@ export default function OptimizedImage({
             className={`absolute inset-0 z-10 flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 ${skeletonClassName}`}
           >
             {shimmer ? (
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 dark:via-white/5 to-transparent animate-shimmer -translate-x-full" 
+              <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 dark:via-white/5 to-transparent animate-shimmer -translate-x-full" 
                 style={{
                   backgroundImage: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0) 100%)',
                   animation: 'shimmer 1.6s infinite',
@@ -126,6 +126,7 @@ export default function OptimizedImage({
           onError={handleError}
           loading={loading}
           referrerPolicy={referrerPolicy}
+          decoding="async"
           initial={{ opacity: 0, scale: 1.02 }}
           animate={{ 
             opacity: isLoading ? 0 : 1, 

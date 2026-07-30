@@ -56,17 +56,17 @@ export default function FAQ() {
       }
     >
       {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 flex flex-col items-center gap-4">
+      <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10 flex flex-col items-center gap-4">
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-200/60 dark:border-emerald-800/30 bg-emerald-500/5 dark:bg-emerald-500/5 text-emerald-700 dark:text-emerald-400 font-sans text-xs font-semibold tracking-wider uppercase"
           >
             Frequently Asked Questions
           </div>
           
-          <h2
-            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-950 dark:text-white"
+            <h2
+              className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 dark:text-white"
           >
-            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500 dark:from-emerald-400 dark:to-teal-400 font-bold">Questions</span>
+            Frequently Asked <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-600 to-teal-500 dark:from-emerald-400 dark:to-teal-400 font-bold">Questions</span>
           </h2>
           
           <p
@@ -89,13 +89,13 @@ export default function FAQ() {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
                   isOpen 
-                    ? 'border-emerald-500/30 dark:border-emerald-400/20 bg-white dark:bg-zinc-900/40 shadow-lg shadow-emerald-500/[0.02]' 
+                    ? 'border-emerald-500/30 dark:border-emerald-400/20 bg-white dark:bg-zinc-900/40 shadow-lg shadow-emerald-500/2' 
                     : 'border-zinc-100 dark:border-zinc-800/60 bg-zinc-50/50 dark:bg-zinc-900/20 hover:bg-zinc-50 dark:hover:bg-zinc-900/40'
                 }`}
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full flex items-center justify-between text-left p-6 sm:p-8 font-sans focus:outline-none group cursor-pointer"
+                  className="w-full flex items-center justify-between text-left p-4 sm:p-5 font-sans focus:outline-none group cursor-pointer"
                   aria-expanded={isOpen}
                   id={`faq-btn-${index}`}
                   aria-controls={`faq-content-${index}`}
@@ -149,9 +149,9 @@ export default function FAQ() {
                           opacity: { duration: 0.2, ease: 'easeInOut' }
                         }
                       }}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-6 pb-6 sm:px-8 sm:pb-8 pt-0 border-t border-zinc-100/10 dark:border-zinc-800/20">
+                       className="overflow-hidden"
+                     >
+                       <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 border-t border-zinc-100/10 dark:border-zinc-800/20">
                         <p className="font-sans text-sm sm:text-base text-zinc-650 dark:text-zinc-400 leading-relaxed pt-6">
                           {faq.answer}
                         </p>
@@ -170,7 +170,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-16 md:mt-20 p-8 md:p-10 rounded-3xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-100 dark:border-zinc-800/60 text-center relative overflow-hidden"
+          className="mt-10 md:mt-12 p-6 md:p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-100 dark:border-zinc-800/60 text-center relative overflow-hidden"
         >
           {/* Subtle background glow inside card */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 rounded-full bg-emerald-500/5 blur-3xl pointer-events-none" />
@@ -192,7 +192,7 @@ export default function FAQ() {
                   element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
               }}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-sans text-sm font-semibold text-white bg-emerald-500 dark:bg-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-500 shadow-[0_4px_12px_rgba(16,185,129,0.2)] hover:shadow-[0_4px_16px_rgba(16,185,129,0.3)] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-semibold text-white bg-emerald-500 dark:bg-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-500 shadow-[0_4px_12px_rgba(16,185,129,0.2)] hover:shadow-[0_4px_16px_rgba(16,185,129,0.3)] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
             >
               Contact Us
               <ArrowUpRight className="h-4 w-4" />
@@ -202,7 +202,7 @@ export default function FAQ() {
               onClick={() => {
                 window.dispatchEvent(new CustomEvent('open-whatsapp-modal'));
               }}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-sans text-sm font-semibold text-zinc-800 dark:text-zinc-200 bg-white dark:bg-zinc-900/50 hover:bg-zinc-50 dark:hover:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500/40 dark:hover:border-emerald-400/40 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-semibold text-zinc-800 dark:text-zinc-200 bg-white dark:bg-zinc-900/50 hover:bg-zinc-50 dark:hover:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500/40 dark:hover:border-emerald-400/40 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
             >
               <MessageCircle className="h-4 w-4 text-emerald-500" />
               Chat on WhatsApp
